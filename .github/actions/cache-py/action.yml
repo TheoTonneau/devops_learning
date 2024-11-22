@@ -17,10 +17,9 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: Set up Python
-      uses: actions/setup-python@v5
+    - uses: actions/setup-node@v3
       with:
-        python-version: '3.9'
+        node-version: 20
 
     - name: "Cache pip"
       id: cache-pip
