@@ -1,5 +1,5 @@
 name: "cache management"
-description: "Manage cache and nodejs"
+description: "Manage cache and python"
 
 
 inputs:
@@ -17,15 +17,16 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - uses: actions/setup-node@v3
+    - name: Set up Python
+      uses: actions/setup-python@v5
       with:
-        node-version: ${{ inputs.NODE_VERSION }}
+        python-version: '3.9'
 
-    - name: "Cache node modules"
-      id: cache-node-modules
+    - name: "Cache pip"
+      id: cache-pip
       uses: actions/cache@v3
       env:
-        cache-name: cache-node-modules
+        cache-name: cache-python
       with:
         path: |
           .venv/
